@@ -4,3 +4,735 @@
 // 
 
 // Add extra styles here
+
+// DatePicker
+.sr-only {
+    position: absolute;
+    top: -2000em;
+    left: -3000em;
+  }
+
+  .current-day {
+    background-color: white;
+    color: #0b0c0c !important;
+    border: 2px solid #0b0c0c !important;
+    padding: 0px;
+
+  &:focus {
+    background-color: #fd0;
+    border: 2px solid #0b0c0c !important;
+    border-bottom: 4px solid #0b0c0c !important;
+    color: #0b0c0c;
+    padding: 3px !important;
+  }
+
+  &:hover {
+    background-color: #949494;
+    border-bottom: 4px solid #949494;
+    color: #0b0c0c;
+  }
+
+  &:focus:hover {
+    background-color: #949494;
+    border-bottom: 4px solid #0b0c0c;
+    color: #0b0c0c;
+  }
+  }
+
+  .date-picker-group {
+    display: flex;
+  }
+  
+  .datepicker {
+    margin-top: 1em;
+    position: relative;
+  }
+  
+  .group {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .datepicker label {
+    display: block;
+  }
+  
+  .datepicker button.icon {
+    position: relative;
+    top: 0.25em;
+    margin: 0;
+    padding: 4px;
+    border: 0 solid #005a9c;
+    background-color: white;
+    border-radius: 5px;
+  }
+  
+  .datepicker .desc {
+    position: absolute;
+    left: 0;
+    top: 2em;
+  }
+  
+  .datepicker button.icon:focus {
+    outline: none;
+    padding: 2px;
+    border-width: 2px;
+    background-color: #def;
+  }
+  
+  .datepicker-dialog {
+    background-color: #fff;
+    display: none;
+    width: min-content;
+    outline: 2px solid #0b0c0c;
+    outline-offset: -2px;
+    padding: 10px;
+    margin-top: 5px;
+    top: 0;
+    transition: background-color .2s, outline-color .2s;
+    z-index: 2;
+  }
+  
+  .datepicker-dialog .header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    position: relative;
+    align-items: center;
+    display: flex;
+  }
+
+  .dates button {
+        font-size: 1rem;
+        line-height: 1.25;
+    }
+
+  .dates thead {
+    font-family: GDS Transport, arial, sans-serif;
+    font-size: 1rem;
+  }
+  
+  .datepicker-dialog h2 {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    font-family: GDS Transport, arial, sans-serif;
+    font-size: 1rem;
+    color: black;
+    text-transform: none;
+    border: none;
+  }
+  
+  .datepicker-dialog button::-moz-focus-inner {
+    border: 0;
+  }
+
+  
+  .datepicker-dialog .prev-year,
+  .datepicker-dialog .prev-month,
+  .datepicker-dialog .next-month,
+  .datepicker-dialog .next-year {
+    width: 44px;
+    height: 40px;
+    color: black;
+  }
+  
+  .datepicker-dialog .prev-year:focus,
+  .datepicker-dialog .prev-month:focus,
+  .datepicker-dialog .next-month:focus,
+  .datepicker-dialog .next-year:focus {
+    &:focus {
+    background-color: #fd0;
+    color: #0b0c0c;
+    }
+    &:focus:hover {
+      background-color: #949494;
+      color: #0b0c0c;
+    }
+  }
+  
+  .datepicker-dialog .prev-year:hover,
+  .datepicker-dialog .prev-month:hover,
+  .datepicker-dialog .next-month:hover,
+  .datepicker-dialog .next-year:hover {
+    &:hover {
+    background-color: #949494;
+    color: #0b0c0c;
+    }
+    &:focus:hover {
+      background-color: #949494;
+      color: #0b0c0c;
+    }
+  }
+  
+  .datepicker-dialog .dialog-ok-cancel-group {
+    text-align: right;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-right: 1em;
+  }
+  
+  .datepicker-dialog .dialog-ok-cancel-group button {
+    padding: 6px;
+    margin-left: 1em;
+    width: 5em;
+    background-color: #949494;
+    /*font-size: 0.85em;*/
+    color: black;
+    outline: none;
+    border-radius: 5px;
+  }
+  
+  .datepicker-dialog .dialog-button:focus {
+    padding: 4px;
+    border: 2px solid black;
+  }
+  
+  .datepicker-dialog .dialog-button:hover {
+    padding: 5px;
+    border: 1px solid black;
+  }
+  
+  .datepicker-dialog .month-year {
+    display: inline-block;
+    width: 10rem;
+    text-align: center;
+  }
+  
+  .datepicker-dialog table.dates {
+    /* padding-left: 1em;
+    padding-right: 1em; */
+    padding-top: 1em;
+    border: none;
+    border-collapse: separate;
+  }
+  
+  .datepicker-dialog table.dates th,
+  .datepicker-dialog table.dates td {
+    text-align: center;
+    background: white;
+    color: black;
+    border: none;
+  }
+  
+  .datepicker-dialog table.dates tr {
+    border: 1px solid black;
+  }
+  
+  .datepicker-dialog table.dates td {
+    padding: 3px;
+    margin: 0;
+    line-height: inherit;
+    height: 40px;
+    width: 44px;
+    border-radius: 0px;
+    /*font-size: .875rem;*/
+    font-weight: 400;
+    line-height: 1.1428571429;
+    font-family: GDS Transport, arial, sans-serif;
+    background: #ffffff;
+  }
+  
+  .datepicker-dialog table.dates td.disabled {
+    padding: 2px;
+    border: none;
+    height: 40px;
+    width: 44px;
+  }
+  
+  .datepicker-dialog table.dates td:focus {
+    padding: 3px;
+    background-color: #949494;
+    color: black;
+  }
+  .datepicker-dialog table.dates td.disabled:focus,
+  .datepicker-dialog table.dates td.disabled:hover {
+    padding: 3px;
+    background-color: white;
+    color: black;
+  }
+  
+  .datepicker-dialog table.dates td:focus {
+    padding: 1px;
+    outline: 0;
+  }
+  
+  .datepicker-dialog table.dates td:not(.disabled):hover {
+    padding: 3px;
+    border: 0px solid black;
+    background-color: #949494;
+    cursor: pointer;
+    height: 40px;
+    width: 44px;    
+  }
+  
+  .datepicker-dialog table.dates td[aria-selected] {
+    padding: 1px;
+    /*border: 2px solid black;*/
+    background-color: #1d70b8;
+    color: white;
+  }
+  
+  .datepicker-dialog table.dates td[aria-selected]:focus {
+    padding: 1px;
+  }
+  
+  .datepicker-dialog table.dates td[tabindex="0"] {
+    line-height: 1.1428571429;
+    background-color: #fd0;
+    border-bottom: 4px solid #0b0c0c;
+    color: #0b0c0c;
+  }
+
+  .table-wrap:focus-visible {
+    outline: -webkit-focus-ring-color auto 1px;
+  }
+  
+  .datepicker-dialog .dialog-message {
+    padding-top: 0.25em;
+    padding-left: 1em;
+    height: 1.75em;
+    background: #1d70b8;
+    color: white;
+  }
+
+.datepicker__toggle {
+  background-color: #0b0c0c;
+  border: none;
+  border-bottom: 4px solid #0000;
+  color: #fff;
+  cursor: pointer;
+  height: 40px;
+  outline: 3px solid #0000;
+  outline-offset: -3px;
+  padding-top: 6px;
+
+  &:focus {
+    background-color: #fd0;
+    border-bottom: 4px solid #0b0c0c;
+    color: #0b0c0c;
+  }
+
+  &:hover {
+    background-color: #949494;
+    border-bottom: 4px solid #949494;
+    color: #0b0c0c;
+  }
+
+  &:focus:hover {
+    background-color: #949494;
+    border-bottom: 4px solid #0b0c0c;
+    color: #0b0c0c;
+  }
+}
+
+.datepicker__button {
+    background-color: initial;
+    border-width: 0;
+    color: #0b0c0c;
+    font-family: GDS Transport, arial, sans-serif;
+    height: 40px;
+    width: 44px;
+    margin: 0;
+    outline: 2px solid #0000;
+    outline-offset: -2px;
+    padding: 0;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /*font-size: .875rem;*/
+    font-weight: 400;
+    line-height: 1.1428571429;
+}
+.datepicker__button:after {
+    background-color: initial;
+    bottom: 0;
+    content: "";
+    height: 4px;
+    left: 0;
+    position: absolute;
+    right: 0;
+}
+
+.datepicker__button:focus {
+    background-color: #fd0;
+    outline-color: #0000;
+    color: #0b0c0c;
+}
+.datepicker__button:focus:after {
+    background-color: #0b0c0c;
+}
+
+.datepicker__button:hover{
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    color: #0b0c0c;
+}
+
+.datepicker__calendar tbody:focus-within {
+    outline: 2px solid #fd0;
+}
+
+// Ends DatePicker
+// Begin Choose a Slot
+
+.appointment-tabs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    /* background-color: #f3f2f1 */
+}
+
+.appointment-tabs li {
+    width: auto;
+    padding: 18px 18px 8px;
+    border: 1px solid #b1b4b6;
+    background-color: #f3f2f1;
+    margin-right: -1px;
+    text-align: center;
+    width: 100%
+}
+
+
+.appointment-tabs li a:focus {
+    outline: 3px solid transparent;
+    color: #0b0c0c;
+    background-color: #fd0;
+    box-shadow: 0 -2px #fd0,0 4px #0b0c0c;
+    text-decoration: none;
+    display: inline-block;
+    color: #0b0c0c;
+    text-decoration: none
+}
+
+@supports not (text-wrap: balance) {
+    .appointment-tabs li a:focus {
+        -webkit-box-decoration-break:clone;
+        box-decoration-break: clone
+    }
+}
+
+.appointment-tabs li a {
+    text-decoration: none;
+    color: #0b0c0c;
+}
+
+.appointment-tabs li.tab-0 {
+    background-color: #fff;
+    border-top: 5px solid #0b0c0c;
+    border-bottom: none;
+    padding-top: 14px;
+    color: #0b0c0c
+}
+
+.appointment-tabs li.mobile-hidden {
+    display: none;
+}
+
+@media(min-width: 48.0625em) {
+    .appointment-tabs li.mobile-hidden {
+        display:block;
+    }
+}
+
+.appointment-tabs li .tab-date {
+    font-size: 1em;
+    margin-bottom: 10px;
+    display: block;
+    color: #0b0c0c
+}
+
+.appointment-tabs li .tab-slots-available {
+    font-size: 1em;
+    margin-bottom: 10px;
+    font-weight: bold;
+    display: block
+}
+
+.appointment-tabs li .tab-slots-not-available {
+    font-size: 1em;
+    margin-bottom: 10px;
+    display: block
+}
+
+.appointment-tabs li .tab-day {
+    font-weight: 900;
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #0b0c0c;
+    text-decoration: none
+}
+
+.weekly-navigation {
+    list-style: none;
+    display: flex;
+    padding: 0
+}
+
+.weekly-navigation.only-mobile {
+    display: flex
+}
+
+.weekly-navigation.only-desktop {
+    display: none
+}
+
+.weekly-navigation li {
+    width: 50%
+}
+
+.weekly-navigation .nav-next {
+    text-align: right
+}
+
+.morning-slots button,.afternoon-slots button {
+    width: 100%
+}
+
+@media(min-width: 48.0625em) {
+    .weekly-navigation.only-mobile {
+        display:none
+    }
+
+    .weekly-navigation.only-desktop {
+        display: flex
+    }
+
+    .morning-slots,.afternoon-slots {
+        display: flex;
+        flex-wrap: wrap
+    }
+
+    .morning-slots form,.afternoon-slots form {
+        margin-right: 1em
+    }
+
+    .morning-slots button,.afternoon-slots button {
+        width: auto
+    }
+}
+
+//Choose a Slot Button
+.mca-slot-button {
+  color: #144e81
+}
+
+//MCA Card
+.mca-card-container {
+  display: flex;
+}
+
+.mca-card-container > .govuk-grid-column-one-half {
+  display: flex;
+}
+
+.mca-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 20rem; //this is temporary
+}
+
+.mca-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f5f5f6;
+  padding: 2rem;
+  border-bottom: 2px solid #1d70b8;
+}
+
+.content-spaces::after {
+  padding-right: 2em
+} //this is temporary fix!
+
+.mca-card-content h3 {
+  margin-bottom: 0px;
+}
+
+// MCA Clickable Card
+.mcga-card-group__item {
+  display: flex;
+  margin-bottom: 0px;
+}
+.mcga-link {
+    height: fit-content;
+    text-decoration: none;
+}
+
+.mcga-card--clickable {
+  display: flex;
+  background-color: #f5f5f6;
+  padding: 2rem;
+  border-bottom: 2px solid #1d70b8;
+}
+.mcga-card--clickable:hover, .mcga-card--clickable:active {
+  cursor: pointer;
+}
+.mcga-card--clickable:hover .mcga-card__content a, .mcga-card--clickable:active .mcga-card__content a {
+  color: #003078;
+  text-decoration: underline;
+}
+.mcga-card--clickable:hover .mcga-card__content a:focus, .mcga-card--clickable:active .mcga-card__content a:focus {
+  color: #0b0c0c;
+  text-decoration: none;
+}
+.mcga-card--clickable:hover, .mcga-card--clickable:active {
+  box-shadow: 0 2px 0 0 #003078;
+}
+.mcga-card--clickable:active {
+  border-bottom-width: 0;
+  bottom: -2px;
+}
+
+.mcga-link {
+  height: fit-content;
+  text-decoration: none;
+}
+.mcga-link h3 {
+  color: #1d70b8;
+}
+.mcga-link:hover h3 {
+  color: #003078;
+}
+
+.mcga-card__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 15rem; //this is temporary
+}
+
+.mcga-card-content h3 {
+  margin-bottom: 0px;
+}
+
+// Custom inset text
+.govuk-inset-text--custom {
+  background-color: #f3f2f1;
+}
+
+/* Wrapper for proper alignment in navigationEnd slot */
+.service-menu-signout-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  height: 50px !important; /* Match the typical service navigation height */
+  margin-left: auto !important;
+  padding-left: 20px;
+}
+
+/* Service menu sign out - right alignment and vertical centering */
+.service-menu-signout {
+  margin-left: auto;
+  padding-left: 20px;
+  display: inline-flex !important;
+  align-items: center !important;
+  align-self: center !important;
+  line-height: normal !important;
+}
+
+/* Fix for navigationEnd slot alignment */
+.govuk-service-navigation__search {
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Direct child of navigationEnd slot */
+.govuk-service-navigation__link--end {
+  display: flex !important;
+  align-items: center !important;
+  height: 100% !important;
+}
+
+/* Alternative approach if the service navigation uses flexbox */
+.govuk-service-navigation__navigation {
+  display: flex;
+  align-items: center;
+}
+
+.govuk-service-navigation__navigation .service-menu-signout {
+  margin-left: auto;
+  padding-left: 20px;
+  display: flex !important;
+  align-items: center !important;
+  align-self: center !important;
+  height: 100%;
+}
+
+/* If it's within a list item */
+.govuk-service-navigation__item.service-menu-signout,
+li.service-menu-signout {
+  display: flex !important;
+  align-items: center !important;
+  align-self: center !important;
+  margin-left: auto;
+  height: 100%;
+}
+
+/* Ensure the link itself is also centered */
+.service-menu-signout a {
+  display: flex !important;
+  align-items: center !important;
+  align-self: center !important;
+  height: 100%;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Style the link with higher specificity */
+.service-menu-signout,
+.service-menu-signout .govuk-link,
+.service-menu-signout .govuk-link--inverse,
+.service-menu-signout a,
+a.service-menu-signout,
+.govuk-service-navigation .service-menu-signout,
+.govuk-service-navigation .service-menu-signout a,
+.govuk-service-navigation__item.service-menu-signout a,
+.govuk-service-navigation__list .service-menu-signout a {
+  color: #0b0c0c !important; /* Black color */
+  font-weight: 700 !important; /* Bold */
+  text-decoration: none !important; /* No underline */
+}
+
+/* Override all link states */
+.service-menu-signout a:link,
+.service-menu-signout a:visited,
+.service-menu-signout a:hover,
+.service-menu-signout a:focus,
+.service-menu-signout a:active,
+.service-menu-signout .govuk-link:link,
+.service-menu-signout .govuk-link:visited,
+.service-menu-signout .govuk-link:hover,
+.service-menu-signout .govuk-link:focus,
+.service-menu-signout .govuk-link:active,
+.service-menu-signout .govuk-link--inverse:link,
+.service-menu-signout .govuk-link--inverse:visited,
+.service-menu-signout .govuk-link--inverse:hover,
+.service-menu-signout .govuk-link--inverse:focus,
+.service-menu-signout .govuk-link--inverse:active,
+a.service-menu-signout:link,
+a.service-menu-signout:visited,
+a.service-menu-signout:hover,
+a.service-menu-signout:focus,
+a.service-menu-signout:active {
+  color: #0b0c0c !important; /* Stay black */
+  font-weight: 700 !important; /* Stay bold */
+  text-decoration: none !important; /* No underline */
+}
+
+/* For responsive design - stack on mobile */
+@media (max-width: 640px) {
+  .service-menu-signout {
+    margin-left: 0;
+    padding-left: 0;
+    margin-top: 10px;
+  }
+}
