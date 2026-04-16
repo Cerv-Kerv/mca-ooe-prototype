@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/pattern.html" %}
 
 {% block header %}
   <!-- Blank header with no service name for the start page -->
@@ -12,42 +12,129 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">
-        MCA Prototypes
-      </h1>
+  <div class="govuk-grid-row" style="margin-bottom: 50px">
+    <div class="govuk-grid-column-one-third">
+      <img src="/public/images/mca_logo.jpg" width="150px" style="vertical-align: text-middle; margin-left: -28px;"/>
+      </div>
+       <div class="govuk-grid-column-two-thirds">
 
-      <ol class="govuk-prototype-kit-task-list">
-        <li>
-          <h2 class="govuk-prototype-kit-task-list__section">
-            Online oral exam
-          </h2>
-          <ul class="govuk-prototype-kit-task-list__items">
-            <li class="govuk-prototype-kit-task-list__item">
+<span class="govuk-caption-xl" style="margin-top: 30px;">Prototype</span>
+<h1 class="govuk-heading-l">{{ serviceName }}</h1>
+
+       </div>
+      </div>
+
+<div class="govuk-grid-row">
+         <div class="govuk-grid-column-two-thirds">
+<ul class="govuk-task-list">
+
+
+{% from "govuk/components/task-list/macro.njk" import govukTaskList %}
+
+{{ govukTaskList({
+  idPrefix: "company-details",
+  items: [
+    {
+      title: {
+        text: "Company Directors"
+      },
+      href: "#",
+      status: {
+        text: "Completed"
+      }
+    },
+    {
+      title: {
+        text: "Registered company details"
+      },
+      href: "#",
+      status: {
+        tag: {
+          text: "Incomplete",
+          classes: "govuk-tag--blue"
+        }
+      }
+    },
+    {
+      title: {
+        text: "Financial history"
+      },
+      hint: {
+        text: "Include 5 years of the company’s relevant financial information"
+      },
+      href: "#",
+      status: {
+        tag: {
+          text: "Incomplete",
+          classes: "govuk-tag--blue"
+        }
+      }
+    },
+    {
+      title: {
+        text: "Business plan"
+      },
+      href: "#",
+      status: {
+        tag: {
+          text: "Incomplete",
+          classes: "govuk-tag--blue"
+        }
+      }
+    },
+    {
+      title: {
+        text: "References"
+      },
+      href: "#",
+      status: {
+        tag: {
+          text: "Incomplete",
+          classes: "govuk-tag--blue"
+        }
+      }
+    }
+  ]
+}) }}
+
+
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
               <span class="govuk-prototype-kit-task-list__task-name">
                 <a href="/ooe/v10-access-and-book/maritime-and-coastguard-agency" aria-describedby="Book an exam">
-                  v10.X Book an exam
+v10.X Book an exam
                 </a>
               </span>
-              <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="Book an exam">Completed</strong>
+              <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="ATS 2">Complete</strong>
             </li>
-            <li class="govuk-prototype-kit-task-list__item">
+                        <li class="govuk-prototype-kit-task-list__item">
               <span class="govuk-prototype-kit-task-list__task-name">
-                <a href="/ooe/v10-manage-exam/maritime-and-coastguard-agency" aria-describedby="reschedule or cancel">
+                <a href="/ooe/v10-21days-manage-exam/maritime-and-coastguard-agency" aria-describedby="less than 21 days' noticel">
                   v10.X Manage a booking (reschedule or cancel)
                 </a>
               </span>
-              <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="reschedule or cancel">Completed</strong>
+              <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="ATS 2">Complete</strong>
             </li>
-            <li class="govuk-prototype-kit-task-list__item">
+                        <li class="govuk-prototype-kit-task-list__item">
               <span class="govuk-prototype-kit-task-list__task-name">
                 <a href="/ooe/v10-21days-manage-exam/maritime-and-coastguard-agency" aria-describedby="less than 21 days' noticel">
                   v10.X Manage a booking (less than 21 days' notice)
                 </a>
               </span>
-              <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="less than 21 days' notice">Completed</strong>
+              <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="ATS 2">Complete</strong>
             </li>
+
+            </li>
+            </ul>
+          </div>
+</div>
+
+
+
+
+      <ol class="govuk-prototype-kit-task-list">
+        <li>
+          <ul class="govuk-prototype-kit-task-list__items">
+
              <li class="govuk-prototype-kit-task-list__item">
               <span class="govuk-heading-s govuk-!-margin-top-5">
                 Oral exam page statuses
@@ -87,21 +174,8 @@
           </ul>
         </li>
 
-        <li>
-          <h2 class="govuk-prototype-kit-task-list__section"> Applications (e2e)
-          </h2>
-          <ul class="govuk-prototype-kit-task-list__items">
-            <li class="govuk-prototype-kit-task-list__item">
-              <span class="govuk-prototype-kit-task-list__task-name">
-                <a href="/" aria-describedby="contact-details-status">
-                  v1.0 Applications
-                </a>
-              </span>
-              <strong class="govuk-tag govuk-tag--grey govuk-prototype-kit-task-list__tag" id="submit-pay-status">Not stared yet</strong>
-            </li>
-          </ul>
-        </li>
-      </ol>
+        
+      </ul>
     </div>
   </div>
 
