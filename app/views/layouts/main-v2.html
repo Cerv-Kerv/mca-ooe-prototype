@@ -1,0 +1,47 @@
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+
+
+  <style>
+.govuk-template--rebranded .govuk-header__logo {
+float: left !important;
+}
+
+  .govuk-template--rebranded .hmrc-header.hmrc-header--with-additional-navigation .hmrc-sign-out-nav {
+    margin-bottom: 0px !important;
+    padding-top: 28px !important;
+}
+
+.govuk-task-list__status {
+min-width: 130px !important;
+}
+
+.govuk-task-list__name-and-hint {
+  max-width: 280px;
+}
+
+</style>
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
+
+
+    {% block footer %}
+      {{ govukFooter({
+        meta: {
+          items: [
+          { href: "/ooe/footer/contact", text: "Contact" },
+          { href: "/ooe//footer/terms-and-conditions", text: "Terms and conditions" },
+
+            { href: "/ooe/footer/privacy-notice", text: "Privacy" },
+            { href: "/ooe/footer/cookies", text: "Cookies" },
+            { href: "/ooe/footer/accessibility-statement", text: "Accessibility statement" }
+          ],
+          visuallyHiddenTitle: "Footer links"
+        }
+      }) }}
+    {% endblock %}
+
+
+

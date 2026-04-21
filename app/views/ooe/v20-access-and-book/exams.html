@@ -1,0 +1,96 @@
+{% extends "layouts/main-v2.html" %}
+
+{% block pageTitle %}
+  Exams – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {% from "govuk/components/header/macro.njk" import govukHeader %}
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
+{{ hmrcHeader({
+  homepageUrl : "/",
+  signOutHref : "?sign-out",
+  useTudorCrown: "true"
+}) }}
+{{ govukServiceNavigation({
+    serviceName: serviceName,
+      navigation: [   
+      {
+      href: "dashboard",
+      text: "Dashboard"
+      
+    },
+    {
+      href: "exams",
+      text: "Oral exams",
+      active: true
+    }
+],
+        slots: {
+    },
+    classes: "govuk-header--full-width-border"
+  }) }}
+{% endblock %}
+
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Beta"
+  },
+  html: 'This is a new service. Help us improve it and <a class="govuk-link" target="_blank" href="#">give your feedback (opens in new tab)</a>.'
+}) }}
+{% endblock %}
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Exams
+      </h1>
+
+      <div class="govuk-inset-text">
+       <h2 class="govuk-heading-s">Exam slots may be limited
+       </h2>
+       <p>Have several dates in mind before you book. This will help you find a suitable slot.
+       </p>
+      </div>
+      <h2 class="govuk-heading-m">Oral exams</h2>
+
+   
+      {% set completedStatus = {
+        tag: {
+          text: "Exam booked",
+          classes: "govuk-tag--blue"
+        }
+      } %}
+
+      {% set incompleteStatus = {
+        tag: {
+          text: "Not booked",
+          classes: "govuk-tag--light-blue"
+        }
+      } %}
+
+      {# To switch between the completed and incomplete statues, use some inline logic within the component below, like this: "status: (completedStatus if ... else incompleteStatus)" #}
+
+      {{ govukTaskList({
+        idPrefix: "first-section",
+        items: [
+          {
+            title: {
+              text: "Marine Engine Operator Licence (MEOL) and Senior MEOL"
+            },
+            href: "enter-a-date-for-a-slot",
+            status: incompleteStatus
+          }
+        ]
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends "layouts/main-v2.html" %}
+
+{% block pageTitle %}
+  {% if data['confirm-error'] == 'true' or data['other-reason-error'] == 'true' %}Error: {% endif %}
+          Privacy notice
+ – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {% from "govuk/components/header/macro.njk" import govukHeader %}
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
+{{ hmrcHeader({
+  homepageUrl : "/",
+  signOutHref : "?sign-out",
+  useTudorCrown: "true"
+}) }}
+{{ govukServiceNavigation({
+    serviceName: serviceName,
+    slots: {
+    },
+    classes: "govuk-header--full-width-border"
+  }) }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Beta"
+    },
+    html: 'This is a new service. Help us improve it and <a class="govuk-link" target="_blank" href="#">give your feedback (opens in new tab)</a>.'
+  }) }}
+  
+      {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+          Privacy notice
+      </h1>
+
+<h2 class="govuk-heading-m">1. How we use your Information</h2>
+<p  >This privacy notice describes how we collect and use personal information about you when you apply for an oral exam.</p>
+<p  >The data controller for your personal information is the Maritime and Coastguard Agency (MCA). This notice sets out how your data will be used and your rights under the UK General Data Protection Regulation (GDPR) and the Data Protection Act 2018.</p>
+<p  >The MCA will use the information provided to ascertain eligibility and entitlement for an oral exam.</p>
+<h2 class="govuk-heading-m">2. The type of personal information we collect</h2>
+<p  >The MCA will collect and process the following personal information when you apply for an oral exam. We collect this data to ensure we have sufficient information for us to evaluate your eligibility and book an exam</p>
+<ul class="govuk-list govuk-list--bullet">
+    <li  >Your name</li>
+    <li  >Your date of birth</li>
+    <li  >Your email</li>
+    <li  >Your SDS number</li>
+    <li  >Your phone number</li>
+    <li  >Sponsoring company email/phone number</li>
+  </ul>
+<h2 class="govuk-heading-m">3. How we get the personal information and why we have it</h2>
+<p  >The personal information that we process is provided by you to the MCA directly in order for the MCA to carry out its official duty to keep provide oral exams. We process your information for the following purposes:</p>
+<ul class="govuk-list govuk-list--bullet">
+    <li  >To ensure the applicant is entitled to apply for an oral exam.</li>
+    <li  >To allow the applicant to book an oral exam.</li>
+    <li  >To contact the applicant if required for the purpose of processing the booking.</li>
+  </ul>
+<p  >Under the UK General Data Protection Regulation (UK GDPR), the MCA will only process your personal data where we have a lawful basis to do so. We process your personal data for this purpose in accordance with the lawful basis identified below:</p>
+<h3 class="govuk-heading-m">Article 6(1)(e) UK GDPR: We need it to perform a task in the public interest or in the exercise of our official authority.</h2>
+<h2 class="govuk-heading-m">4. How we store and ensure the security of your personal information</h2>
+<p  >Your information is securely stored on the MCA’s secure infrastructure.</p>
+<p></p>
+<h2 class="govuk-heading-m">5.How long we retain your personal information</h2>
+<p  >Your information will be held for as long as you have a valid certificate. If your certificate has an expiry date, and if you have not revalidated your certificate and have not returned to sea after 25 years, we will remove your personal information from our systems.</p>
+<p  >Where your certificate does not have an expiry date, such as GMDSS certifications, we will dispose of your data in line with our retention schedules.</p>
+<p  >The MCA records online oral examinations and Part B: online oral examinations to allow for a review to take place in the event of a candidate’s appeal or an Examiner’s concern.</p>
+<p  >To protect the integrity of the online oral examination system candidates will not have access to, nor be able to obtain, a copy of the recording</p>
+<p  >Where no appeal is received, the recording will be deleted after 90 days. Please note candidate should appeal within <strong>FIVE WORKING DAYS</strong>. Any appeal made after five working days will not be considered.</p>
+<h2 class="govuk-heading-m">6. Who will we share your information with?</h2>
+<p  >The MCA will not share your information.</p>
+<h2 class="govuk-heading-m">7. Your data protection rights</h2>
+<p  >Information on how the MCA looks after personal data, your rights, how to contact our data protection officer and how to complain about processing of your personal data can be found on our personal information charter via the following link:</p>
+<p class="govuk-body"><a href="https://www.gov.uk/government/organisations/maritime-and-coastguard-agency/about/personal-information-charter" rel="noreferrer noopener" target="https://www.gov.uk/government/organisations/maritime-and-coastguard-agency/about/personal-information-charter" class="govuk-link">https://www.gov.uk/government/organisations/maritime-and-coastguard-agency/about/personal-information-charter</a></p>  
+</div>
+  </div>
+
+{% endblock %}

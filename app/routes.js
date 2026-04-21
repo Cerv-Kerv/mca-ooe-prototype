@@ -14,7 +14,7 @@ const VERSIONS = [
   'ooe/v10',
   'ooe/v10_1',
   'ooe/v10_2',
-  'coc/v1'
+  'ooe/V20'
 ]
 
 // ============================================
@@ -898,7 +898,9 @@ createVersionedPostRoutes('/choose-a-slot/', function (req, res, version) {
 const checkYourAnswersPaths = [
   '/ooe/v10-access-and-book/check-your-answers',
   '/ooe/v10-manage-exam/check-your-answers',
-  '/ooe/v10-21days-manage-exam/check-your-answers'
+  '/ooe/v10-21days-manage-exam/check-your-answers',
+    '/ooe/v20-access-and-book/check-your-answers',
+
 ]
 
 // POST handler for when a time slot button is clicked
