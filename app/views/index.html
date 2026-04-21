@@ -29,6 +29,9 @@
 <ul class="govuk-task-list">
 
 
+<h2 class="govuk-heading-s">Version 2</h2>
+
+
 {% from "govuk/components/task-list/macro.njk" import govukTaskList %}
 
 {{ govukTaskList({
@@ -36,13 +39,91 @@
   items: [
       {
       title: {
-        text: "v20.X Book an exam"
+        text: "v2 Book an exam"
       },
       href: "/ooe/v20-access-and-book/start-page",
       status: {
         text: "Completed"
       }
     },
+        {
+      title: {
+        text: "v2 Manage a booking (reschedule or cancel)
+"
+      },
+      href: "/ooe/v20-21days-manage-exam/start-page",
+      status: {
+        text: "Completed"
+      }
+    },
+        {
+      title: {
+        text: "v10.X Manage a booking (less than 21 days' notice)
+"
+      },
+      href: "/ooe/v20-21days-manage-exam/start-page",
+      status: {
+        text: "Completed"
+      }
+    }
+    
+  ]
+}) }}
+
+                <h3 class="govuk-heading-s">Oral exam page statuses</h3>
+
+
+{{ govukTaskList({
+  idPrefix: "OOE-proto1",
+  items: [
+    {
+      title: {
+        text: "Not booked"
+      },
+      href: "/ooe/v20-access-and-book/exams-not-booked",
+      status: {
+        text: "Completed"
+      }
+    },
+        {
+      title: {
+        text: "Booked"
+      },
+      href: "/ooe/v20-access-and-book/exams-booked",
+      status: {
+        text: "Completed"
+      }
+    },
+        {
+      title: {
+        text: "Cancelled"
+      },
+      href: "/ooe/v20-access-and-book/exams-cancelled",
+      status: {
+        text: "Completed"
+      }
+    },
+        {
+      title: {
+        text: "No exam"
+      },
+      href: "/ooe/v10-access-and-book/exams-no-exams",
+      status: {
+        text: "Completed"
+      }
+    }
+    
+  ]
+}) }}
+
+<h2 class="govuk-heading-s">Original OOE prototypes</h2>
+
+
+{% from "govuk/components/task-list/macro.njk" import govukTaskList %}
+
+{{ govukTaskList({
+  idPrefix: "OOE-proto1",
+  items: [
     {
       title: {
         text: "v10.X Book an exam"
@@ -76,7 +157,7 @@
   ]
 }) }}
 
-                <h3 class="govuk-heading-s                                                                                                                                                                                                                                                                                                                                                                                                              ">Oral exam page statuses</h3>
+<h3 class="govuk-heading-s">Oral exam page statuses</h3>
 
 
 {{ govukTaskList({
