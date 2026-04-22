@@ -141,6 +141,31 @@ maritimePaths.forEach(path => {
   })
 })
 
+// ---------- MARITIME AND COASTGUARD AGENCY PAGE (with session clear) ----------
+
+// Array of paths for start-page
+const startscreenPaths = [
+  '/ooe/v20-access-and-book/start-page',
+  '/ooe/v20-manage-exam/start-page',
+  '/ooe/v20-21days-manage-exam/start-page'
+]
+
+// Register GET handler that clears session data
+startscreenPaths.forEach(path => {
+  router.get(path, function(req, res) {
+    // Extract the version from the path
+    const version = path.split('/')[2]
+    
+    console.log(`=== Start screen GET handler (${version}) - Clearing session ===`)
+    
+    // Clear all session data
+    req.session.data = {}
+    
+    // Render the page
+    res.render(`ooe/${version}/start-page`)
+  })
+})
+
 
 // ============================================
 // PRIVACY NOTICE PAGE
@@ -200,7 +225,10 @@ router.post('/ooe/v10*/privacy-notice-check', function (req, res) {
 const dateOfBirthPaths = [
   '/ooe/v10-access-and-book/date-of-birth',
   '/ooe/v10-manage-exam/date-of-birth',
-  '/ooe/v10-21days-manage-exam/date-of-birth'
+  '/ooe/v10-21days-manage-exam/date-of-birth',
+    '/ooe/v20-access-and-book/date-of-birth',
+  '/ooe/v20-manage-exam/date-of-birth',
+  '/ooe/v20-21days-manage-exam/date-of-birth'
 ]
 
 // Register the same handler for all paths
@@ -343,7 +371,10 @@ dateOfBirthPaths.forEach(path => {
 const sdsNumberPaths = [
   '/ooe/v10-access-and-book/sds-number',
   '/ooe/v10-manage-exam/sds-number',
-  '/ooe/v10-21days-manage-exam/sds-number'
+  '/ooe/v10-21days-manage-exam/sds-number',
+    '/ooe/v20-access-and-book/sds-number',
+  '/ooe/v20-manage-exam/sds-number',
+  '/ooe/v20-21days-manage-exam/sds-number'
 ]
 
 // Register the same handler for all paths
@@ -900,6 +931,8 @@ const checkYourAnswersPaths = [
   '/ooe/v10-manage-exam/check-your-answers',
   '/ooe/v10-21days-manage-exam/check-your-answers',
     '/ooe/v20-access-and-book/check-your-answers',
+      '/ooe/v20-manage-exam/check-your-answers',
+  '/ooe/v20-21days-manage-exam/check-your-answers',
 
 ]
 

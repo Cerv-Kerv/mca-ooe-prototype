@@ -14,7 +14,7 @@
 
 {{ hmrcHeader({
   homepageUrl : "/",
-  signOutHref : "?sign-out",
+  signOutHref : "signed-out",
   useTudorCrown: "true"
 }) }}
 {{ govukServiceNavigation({
@@ -241,15 +241,16 @@
       </fieldset>
 
 <div class="govuk-button-group">
-  <button type="submit" action="choose-a-slot" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-Show earliest available date
-</button>
-</div>
-      <div class="govuk-button-group govuk-!-margin-top-7">
+
         {{ govukButton({
-          text: "Continue",
+          text: "Show available slots",
           href: "choose-a-slot"
         }) }}
+
+          <button type="submit" action="choose-a-slot" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+Show earliest available date
+</button>
+
         </div>
 
       </form>
