@@ -10,16 +10,18 @@
 {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
 
 {{ hmrcHeader({
-  serviceUrl : "/",
+  homepageUrl : "/",
+  signOutHref : "?sign-out",
   useTudorCrown: "true"
 }) }}
 {{ govukServiceNavigation({
-    serviceName: "Book and manage an oral exam",
-  navigation: [
-    
-  ]
-}) }}
+    serviceName: serviceName,
+        slots: {
+    },
+    classes: "govuk-header--full-width-border"
+  }) }}
 {% endblock %}
+
 
 {% block beforeContent %}
 {{ govukPhaseBanner({
@@ -28,6 +30,11 @@
   },
   html: 'This is a new service. Help us improve it and <a class="govuk-link" target="_blank" href="#">give your feedback (opens in new tab)</a>.'
 }) }}
+
+    {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
 {% endblock %}
 
 {% block content %}
@@ -48,30 +55,9 @@
       <p class="govuk-body">
         <span class="govuk-!-font-weight-bold">SDS number: </span> {{ data['sdsNumber'] }}
       </p>
-      <p>You can<a href="/ooe/v10-access-and-book/date-of-birth.html" class="govuk-link"> try entering your information again.</a>
+      <p>You can<a href="sds-number" class="govuk-link"> try entering your information again.</a>
       </p>
-      <br>
-      <h2 class="govuk-heading-m">
-        Get help
-      </h2>
-
-     <p class="govuk-body">
-        If you continue to have problems, you can contact us by:
-            </p>
-            <h2 class="govuk-heading-s">
-        Email
-      </h2>
-         <ul class="govuk-list govuk-list--bullet">
-         <li><a href="mailto:example@email.com" class="govuk-link">deck@mcga.gov.uk</a> for deck officers</li>
-        <li><a href="mailto:example@email.com" class="govuk-link">engineering@mcga.gov.uk</a> for engineer officers
-        </li>
-      </ul>
-      <h2 class="govuk-heading-s">
-        Phone
-      </h2>
-      <p>
-       +44 (0)20 3817 2200
-        </p>
+   
 
     </div>
   </div>
