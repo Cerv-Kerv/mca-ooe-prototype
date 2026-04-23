@@ -226,7 +226,7 @@ const dateOfBirthPaths = [
   '/ooe/v10-access-and-book/date-of-birth',
   '/ooe/v10-manage-exam/date-of-birth',
   '/ooe/v10-21days-manage-exam/date-of-birth',
-    '/ooe/v20-access-and-book/date-of-birth',
+  '/ooe/v20-access-and-book/date-of-birth',
   '/ooe/v20-manage-exam/date-of-birth',
   '/ooe/v20-21days-manage-exam/date-of-birth'
 ]
@@ -1014,7 +1014,10 @@ checkYourAnswersPaths.forEach(path => {
 const rescheduleCheckYourAnswersPaths = [
   '/ooe/v10-access-and-book/reschedule-check-your-answers',
   '/ooe/v10-manage-exam/reschedule-check-your-answers',
-  '/ooe/v10-21days-manage-exam/reschedule-check-your-answers'
+  '/ooe/v10-21days-manage-exam/reschedule-check-your-answers',
+    '/ooe/v20-access-and-book/reschedule-check-your-answers',
+  '/ooe/v20-manage-exam/reschedule-check-your-answers',
+  '/ooe/v20-21days-manage-exam/reschedule-check-your-answers'
 ]
 
 // POST handler for when a time slot button is clicked in reschedule flow
@@ -1094,14 +1097,20 @@ createVersionedRoutes('/reschedule-choose-a-slot', function (req, res, version) 
 const cancelExamPaths = [
   '/ooe/v10-access-and-book/cancel-exam-booking',
   '/ooe/v10-manage-exam/cancel-exam-booking',
-  '/ooe/v10-21days-manage-exam/cancel-exam-booking'
+  '/ooe/v10-21days-manage-exam/cancel-exam-booking',
+    '/ooe/v20-access-and-book/cancel-exam-booking',
+  '/ooe/v20-manage-exam/cancel-exam-booking',
+  '/ooe/v20-21days-manage-exam/cancel-exam-booking'
 ]
 
 // Array of paths for cancellation-check-your-answers GET
 const cancellationCheckPaths = [
   '/ooe/v10-access-and-book/cancellation-check-your-answers',
   '/ooe/v10-manage-exam/cancellation-check-your-answers',
-  '/ooe/v10-21days-manage-exam/cancellation-check-your-answers'
+  '/ooe/v10-21days-manage-exam/cancellation-check-your-answers',
+    '/ooe/v20-access-and-book/cancellation-check-your-answers',
+  '/ooe/v20-manage-exam/cancellation-check-your-answers',
+  '/ooe/v20-21days-manage-exam/cancellation-check-your-answers'
 ]
 
 // Register GET handlers for cancellation-check-your-answers
@@ -1170,14 +1179,20 @@ cancelExamPaths.forEach(path => {
 const cancelExam21DaysPaths = [
   '/ooe/v10-access-and-book/cancel-exam-booking-21days',
   '/ooe/v10-manage-exam/cancel-exam-booking-21days',
-  '/ooe/v10-21days-manage-exam/cancel-exam-booking-21days'
+  '/ooe/v10-21days-manage-exam/cancel-exam-booking-21days',
+    '/ooe/v20-access-and-book/cancel-exam-booking-21days',
+  '/ooe/v20-manage-exam/cancel-exam-booking-21days',
+  '/ooe/v20-21days-manage-exam/cancel-exam-booking-21days'
 ]
 
 // Array of paths for cancellation-check-your-answers-21days GET
 const cancellationCheck21DaysPaths = [
   '/ooe/v10-access-and-book/cancellation-check-your-answers-21days',
   '/ooe/v10-manage-exam/cancellation-check-your-answers-21days',
-  '/ooe/v10-21days-manage-exam/cancellation-check-your-answers-21days'
+  '/ooe/v10-21days-manage-exam/cancellation-check-your-answers-21days',
+    '/ooe/v20-access-and-book/cancellation-check-your-answers-21days',
+  '/ooe/v20-manage-exam/cancellation-check-your-answers-21days',
+  '/ooe/v20-21days-manage-exam/cancellation-check-your-answers-21days'
 ]
 
 // Register GET handlers for cancellation-check-your-answers-21days

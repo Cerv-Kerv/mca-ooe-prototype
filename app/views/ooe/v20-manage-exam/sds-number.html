@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/main-v2.html" %}
 
 {% block pageTitle %}
   {% if data['sds-error'] == 'true' %}Error: {% endif %}Enter your Seafarer Documentation System (SDS) number – {{ serviceName }} – GOV.UK Prototype Kit
@@ -10,7 +10,7 @@
 {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
 
 {{ hmrcHeader({
-  serviceUrl : "/",
+  homepageUrl : "/",
   useTudorCrown: "true"
 }) }}
 {{ govukServiceNavigation({
@@ -29,12 +29,10 @@
     html: 'This is a new service. Help us improve it and <a class="govuk-link" target="_blank" href="#">give your feedback (opens in new tab)</a>.'
   }) }}
   
-  
- {{ govukBackLink({
+    {{ govukBackLink({
     text: "Back",
     href: "javascript:window.history.back()"
   }) }}
-
 {% endblock %}
 
 {% block content %}
@@ -60,25 +58,27 @@
       {% endif %}
 
       <h1 class="govuk-heading-l">
-        Enter your SDS number
+Enter your Seafarer Reference Number
       </h1>
 
           <p class="govuk-body">
-            You can find SDS number in the email about your NOE (Notice of Eligibility).
-            <br>It is 10 digits long and starts with a '0'.<br>
-          </p>
-          <p class="govuk-hint" id="sds-number-hint">
-            For example, 0000123456
+Your Seafarer Reference Number may also be known to you as a seafarer documentation system (SDS) number.</p>
+          <p class="govuk-body">
+This reference number is usually found in your Notice of Eligibility (NoE) email or other related documentation.
           </p>
 
-      <form class="form" action="sds-number" method="post" novalidate>
+
+      <form class="form" action="date-of-birth" method="post" novalidate>
 
         <div class="govuk-form-group {% if data['sds-error'] == 'true' %}govuk-form-group--error{% endif %}">
           
           
              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-      SDS number
+      Seafarer Reference Number
     </legend>
+              <p class="govuk-hint" id="sds-number-hint">
+            Your Seafarer Reference Number always start with a '0' and is 10 digits long (for example, 0000123456).
+          </p>
           {% if data['sds-error'] == 'true' %}
             <p id="sds-number-error" class="govuk-error-message">
               <span class="govuk-visually-hidden">Error:</span> {{ data['sds-error-message'] }}
@@ -101,27 +101,17 @@
         <details class="govuk-details" data-module="govuk-details">
           <summary class="govuk-details__summary">
             <span class="govuk-details__summary-text">
-              I can't find my SDS number
+Cannot find your SRN or SDS number
             </span>
           </summary>
           <div class="govuk-details__text">
             <p class="govuk-body">
-              If you can't find your SDS number you can request it by:
-            </p>
-            <h2 class="govuk-heading-s">
-        Email
-      </h2>
-         <ul class="govuk-list govuk-list--bullet">
-         <li><a href="mailto:example@email.com" class="govuk-link">deck@mcga.gov.uk</a> for deck officers</li>
-        <li><a href="mailto:example@email.com" class="govuk-link">engineering@mcga.gov.uk</a> for engineer officers
-        </li>
-      </ul>
-      <h2 class="govuk-heading-s">
-        Phone
-      </h2>
-      <p>
-       +44 (0)20 3817 2200
-        </p>
+<p class="govuk-body">If you cannot find your SRN or SDS number you can request it by:</p>            </p>
+            <p><strong>Email</strong><br>
+seafareroperations@mcga.gov.uk </p>
+
+  <p><strong>Phone</strong><br>
++44 (0)333 399 0007</p>
           </div>
         </details>
 

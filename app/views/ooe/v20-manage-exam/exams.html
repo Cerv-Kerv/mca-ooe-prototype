@@ -1,7 +1,7 @@
 {% extends "layouts/main-v2.html" %}
 
 {% block pageTitle %}
-Exam booked – {{ serviceName }} – GOV.UK Prototype Kit
+  Exams – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block header %}
@@ -43,9 +43,9 @@ Exam booked – {{ serviceName }} – GOV.UK Prototype Kit
   html: 'This is a new service. Help us improve it and <a class="govuk-link" target="_blank" href="#">give your feedback (opens in new tab)</a>.'
 }) }}
 {% endblock %}
-
-
 {% block content %}
+
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
@@ -53,13 +53,18 @@ Exam booked – {{ serviceName }} – GOV.UK Prototype Kit
         Exams
       </h1>
 
-
+      <div class="govuk-inset-text">
+       <h2 class="govuk-heading-s">Exam slots may be limited
+       </h2>
+       <p>Have several dates in mind before you book. This will help you find a suitable slot.
+       </p>
+      </div>
       <h2 class="govuk-heading-m">Oral exams</h2>
 
    
       {% set completedStatus = {
         tag: {
-          text: "Booked",
+          text: "Exam booked",
           classes: "govuk-tag--blue"
         }
       } %}
@@ -81,7 +86,7 @@ Exam booked – {{ serviceName }} – GOV.UK Prototype Kit
               text: "Marine Engine Operator Licence (MEOL) and Senior MEOL"
             },
             href: "manage-booking",
-            status: completedStatus
+            status: incompleteStatus
           }
         ]
       }) }}

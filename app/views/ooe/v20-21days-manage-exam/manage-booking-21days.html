@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/main-v2.html" %}
 
 {% block pageTitle %}
   Booking confirmation – {{ serviceName }} – GOV.UK Prototype Kit
@@ -10,27 +10,30 @@
 {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
 
 {{ hmrcHeader({
-  serviceUrl : "/",
+  homepageUrl : "/",
+  signOutHref : "signed-out",
   useTudorCrown: "true"
 }) }}
 {{ govukServiceNavigation({
-    serviceName: "Book and manage an oral exam",
-  navigation: [
-    {
+    serviceName: serviceName,
+      navigation: [   
+      {
       href: "dashboard",
       text: "Dashboard"
+      
     },
     {
-      href: "exams-booked",
-text: "Exams"
+      href: "exams",
+      text: "Oral exams",
+      active: true
     }
-  ],
-    slots: {
-      navigationEnd: '<a class="gov-link govuk-link--no-visited-state service-menu-signout" href="signed-out?sign-out">Sign out</a>'
+],
+        slots: {
     },
     classes: "govuk-header--full-width-border"
   }) }}
 {% endblock %}
+
 
 {% block beforeContent %}
 {{ govukPhaseBanner({
@@ -80,7 +83,7 @@ text: "Exams"
 
   {{ govukButton({
     text: "Cancel exam booking",
-    classes: "govuk-button--secondary",
+    classes: "govuk-button",
     href: "cancel-exam-booking-21days"
   }) }}
 </div>

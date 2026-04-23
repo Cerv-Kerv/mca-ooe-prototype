@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/main-v2.html" %}
 
 {% block pageTitle %}
   {% if data['enter-a-date-for-a-slot-error'] == 'true' %}Error: {% endif %}
@@ -12,29 +12,40 @@
 {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
 
 {{ hmrcHeader({
-  serviceUrl : "/",
+  homepageUrl : "/",
+  signOutHref : "signed-out",
   useTudorCrown: "true"
 }) }}
 {{ govukServiceNavigation({
-    serviceName: "Book and manage an oral exam",
-  navigation: [   
+    serviceName: serviceName,
+      navigation: [   
+      {
+      href: "dashboard",
+      text: "Dashboard"
+      
+    },
+    {
+      href: "exams",
+      text: "Oral exams",
+      active: true
+    }
 ],
-    slots: {
-      navigationEnd: '<div class="service-menu-signout-wrapper"><a class="govuk-link govuk-link--no-visited-state service-menu-signout" href="signed-out?sign-out">Sign out</a></div>'
+        slots: {
     },
     classes: "govuk-header--full-width-border"
   }) }}
 {% endblock %}
 
+
 {% block beforeContent %}
-  {{ govukPhaseBanner({
-    tag: {
-      text: "Beta"
-    },
-    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
-  }) }}
-  
-  {{ govukBackLink({
+{{ govukPhaseBanner({
+  tag: {
+    text: "Beta"
+  },
+  html: 'This is a new service. Help us improve it and <a class="govuk-link" target="_blank" href="#">give your feedback (opens in new tab)</a>.'
+}) }}
+
+ {{ govukBackLink({
     text: "Back",
     href: "javascript:window.history.back()"
   }) }}
@@ -62,7 +73,7 @@
         <span class="govuk-caption-l">MEOL and Senior MEOL exam</span>
         Enter a date to check for available slots
       </h1>
-<div class="govuk-inset-text govuk-inset-text--custom">
+<div class="govuk-inset-text">
        <p>You are changing your current exam slot of 12:30 (BST), 24 October 2025 
        </p>
       </div>
@@ -232,16 +243,19 @@
           </div>
       </fieldset>
 
-<div class="govuk-button-group">
-        <a class="govuk-link govuk-link--no-visited-state" href="reschedule-choose-a-slot">Show earliest available date
-        </a>
+
+        <div class="govuk-button-group">
+  {{ govukButton({
+    text: "Change time or date",
+    href: "reschedule-choose-a-slot"
+  }) }}
+
+  {{ govukButton({
+    text: "Show earliest available date",
+    classes: "govuk-button--secondary",
+    href: "reschedule-choose-a-slot"
+  }) }}
 </div>
-      <div class="govuk-button-group govuk-!-margin-top-7">
-        {{ govukButton({
-          text: "Continue",
-          href: "reschedule-choose-a-slot"
-        }) }}
-        </div>
 
       </form>
 

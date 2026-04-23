@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/main-v2.html" %}
 
 {% block pageTitle %}
   Booking confirmation – {{ serviceName }} – GOV.UK Prototype Kit
@@ -10,27 +10,38 @@
 {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
 
 {{ hmrcHeader({
-  serviceUrl : "/",
+  homepageUrl : "/",
+  signOutHref : "signed-out",
   useTudorCrown: "true"
 }) }}
 {{ govukServiceNavigation({
-    serviceName: "Book and manage an oral exam",
-  navigation: [   
+    serviceName: serviceName,
+      navigation: [   
+      {
+      href: "dashboard",
+      text: "Dashboard"
+      
+    },
+    {
+      href: "exams",
+      text: "Oral exams",
+      active: true
+    }
 ],
-    slots: {
-      navigationEnd: '<div class="service-menu-signout-wrapper"><a class="govuk-link govuk-link--no-visited-state service-menu-signout" href="signed-out?sign-out">Sign out</a></div>'
+        slots: {
     },
     classes: "govuk-header--full-width-border"
   }) }}
 {% endblock %}
 
+
 {% block beforeContent %}
-  {{ govukPhaseBanner({
-    tag: {
-      text: "Beta"
-    },
-    html: 'This is a new service. Help us improve it and <a class="govuk-link" target="_blank" href="#">give your feedback (opens in new tab)</a>.'
-  }) }}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Beta"
+  },
+  html: 'This is a new service. Help us improve it and <a class="govuk-link" target="_blank" href="#">give your feedback (opens in new tab)</a>.'
+}) }}
 
 {% endblock %}
 

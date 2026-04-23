@@ -67,7 +67,7 @@
         text: "v2 Manage a booking (less than 21 days' notice)
 "
       },
-      href: "/ooe/v20-21days-manage-exam/start-page",
+      href: "/ooe/v20-21days-manage-exam/manage-booking-21days",
       status: {
         tag: {
           text: "In progress",
@@ -136,6 +136,25 @@
     
   ]
 }) }}
+
+                <h3 class="govuk-heading-s">Other screens</h3>
+
+    {{ govukTaskList({
+  idPrefix: "OOE-proto1",
+  items: [
+    {
+      title: {
+        text: "Record not found"
+      },
+      href: "/ooe/v20-access-and-book/no-record-found",
+      status: {
+          text: "Complete"
+      }
+    }
+    
+  ]
+}) }}            
+
 
 <h2 class="govuk-heading-m">Original OOE prototypes</h2>
 
